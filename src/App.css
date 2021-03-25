@@ -1,0 +1,114 @@
+body {
+	background-color: #d5d7e0;
+	font-family: Arial;
+  	text-align: center;
+}
+
+body, html, #root {
+	height: 98%;
+}
+
+button {
+	background-color: #d6cdd5;
+}
+
+.topFlex {
+	display: flex;
+	flex-direction: row;
+	height: 100%;
+	width: 100%;
+}
+
+.sidebar {
+	display: flex;
+	height: 100%;
+	min-width: 145px;
+	flex-direction: column;
+	border-bottom: 2px solid black;
+}
+
+.nameInput {
+	padding: 3px;
+	margin: 0px 0;
+}
+
+.addButton {
+	padding: 1px;
+	margin-bottom: 5px;
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	padding: 5px 2px 5px 0px;
+	border-top: 2px solid black;
+	border-left: 2px solid black;
+	border-right: 2px solid black;
+	background-color: #f7f4f9;
+}
+
+.headerButtonSpace {
+	padding-left: 5px;
+	display: inline-block;
+	min-width: 25px;
+}
+
+.headerText {
+	padding-right: 5px;
+}
+
+.selected > .headerText {
+	padding-right: 7px;
+}
+
+.selected {
+	background-color: #d5d7e0;
+	border-right: none;
+}
+
+.afterSidebar {
+	flex: 1 1 auto;
+	border-right: 2px solid black;
+	border-left: 2px solid black;
+	border-top: 2px solid black;
+	background-color: #f7f4f9;
+}
+
+.emptyFlex {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+}
+
+.emptyText {
+	font-size: xx-large;
+	padding: 8px 0;
+}
+
+.counter {
+	height: 100%;
+	width: calc(100% - 135px);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.counterName {
+	font-size: large;
+	margin: 5px 0;
+}
+
+.counterText {
+	font-size: xx-large;
+	margin: 5px 0;
+}
+
+.counterButton {
+	width: 100px;
+	margin: 1px 0;
+	font-size: large;
+}
