@@ -1,7 +1,5 @@
 import React from "react";
 import "./App.css";
-
-// Git structuring options: 1. Just final 2. Branch for each part
 	
 export class CounterApp extends React.Component {
 	constructor(props){
