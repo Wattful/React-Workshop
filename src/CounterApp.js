@@ -87,6 +87,7 @@ function Sidebar({counters, selectedCounter, onHeaderClick}){
 function CounterHeader({name, value, selected, onClick}) {
 	return (
 		<div className={selected ? "selected header" : "header"} onClick={onClick}>
+			<span/>
 			<span className="headerText">
 				{`${name}: ${value}`}
 			</span>
