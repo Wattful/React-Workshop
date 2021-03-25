@@ -6,7 +6,11 @@ export class CounterApp extends React.Component {
 		super(props);
 		this.state = {
 			selectedCounter: 0,
-			counters: [],
+			counters: [
+				{name: "Elephants", value: 0},
+				{name: "Apples", value: 0},
+				{name: "Oranges", value: 0},
+			],
 		};
 	}
 
@@ -31,23 +35,6 @@ export class CounterApp extends React.Component {
 		this.setState({counters: newCounters});
 	}
 
-	onAddCounter = (name) => {
-		const {counters} = this.state;
-		const newCounters = [...counters];
-		newCounters.push({name, value: 0});
-		this.setState({counters: newCounters});
-	}
-
-	onRemoveCounter = (index) => {
-		let {selectedCounter, counters} = this.state;
-		const newCounters = [...counters];
-		newCounters.splice(index, 1);
-		if(index < selectedCounter || (selectedCounter !== 0 && selectedCounter === counters.length - 1)){
-			selectedCounter--;
-		}
-		this.setState({selectedCounter, counters: newCounters});
-	}
-
 	render(){
 		const {counters, selectedCounter} = this.state;
 		const {name, value} = counters[selectedCounter] || {};
@@ -60,27 +47,18 @@ export class CounterApp extends React.Component {
 					onAddCounter={this.onAddCounter} 
 					onRemoveCounter={this.onRemoveCounter}
 				/>
-				{counters.length > 0 ? 
-					(
-						<Counter 
-							name={name}
-							value={value}
-							onPlusClick={() => this.onPlusClick(selectedCounter)}
-							onMinusClick={() => this.onMinusClick(selectedCounter)}
-						/>
-					) : (
-						<div className="emptyFlex">
-							<span className="emptyText">No Counters.</span>
-						</div>
-					)
-				}
+				<Counter 
+					name={name}
+					value={value}
+					onPlusClick={() => this.onPlusClick(selectedCounter)}
+					onMinusClick={() => this.onMinusClick(selectedCounter)}
+				/>
 			</div>		
 		);
 	}
 }
 
-function Sidebar({counters, selectedCounter, onHeaderClick, onAddCounter, onRemoveCounter}){
-	const [text, changeText] = React.useState("");
+function Sidebar({counters, selectedCounter, onHeaderClick}){
 	const counterHeaders = [];
 	for(let i = 0; i < counters.length; i++){
 		const {name, value} = counters[i];
@@ -96,31 +74,8 @@ function Sidebar({counters, selectedCounter, onHeaderClick, onAddCounter, onRemo
 			/>
 		);
 	}
-	const addCounter = () => {
-		if(!text){
-			return;
-		}
-		onAddCounter(text);
-		changeText("");
-	}
-	const enterPress = (event) => {
-		if(event.code === "Enter"){
-			addCounter();
-		}
-	}
 	return (
 		<div className="sidebar">
-			<input 
-				className="nameInput"
-				type="text"
-				placeholder="New Counter Name"
-				onKeyDown={enterPress}
-				value={text}
-				onChange={(event) => changeText(event.target.value)}
-			/>
-			<button className="addButton" type="button" onClick={addCounter} >
-				Add Counter
-			</button>
 			<span>
 				{counterHeaders}
 			</span>
@@ -129,16 +84,9 @@ function Sidebar({counters, selectedCounter, onHeaderClick, onAddCounter, onRemo
 	);
 }
 
-function CounterHeader({name, value, selected, onClick, onRemoveCounter}) {
-	const onRemoveClick = (event) => {
-		event.stopPropagation();
-		onRemoveCounter();
-	}
+function CounterHeader({name, value, selected, onClick}) {
 	return (
 		<div className={selected ? "selected header" : "header"} onClick={onClick}>
-			<span className="headerButtonSpace">
-				<button type="button" onClick={onRemoveClick}>-</button> 
-			</span>
 			<span className="headerText">
 				{`${name}: ${value}`}
 			</span>
