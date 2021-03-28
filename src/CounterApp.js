@@ -44,8 +44,6 @@ export class CounterApp extends React.Component {
 					counters={counters} 
 					selectedCounter={selectedCounter} 
 					onHeaderClick={this.onHeaderClick} 
-					onAddCounter={this.onAddCounter} 
-					onRemoveCounter={this.onRemoveCounter}
 				/>
 				<Counter 
 					name={name}
