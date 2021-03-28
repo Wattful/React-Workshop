@@ -1,5 +1,7 @@
 import React from "react";
 import "./App.css";
+
+// TODO: fix key problem
 	
 export class CounterApp extends React.Component {
 	constructor(props){
@@ -33,9 +35,14 @@ export class CounterApp extends React.Component {
 
 	onAddCounter = (name) => {
 		const {counters} = this.state;
+		for(const {name: counterName} of counters){
+			if(name === counterName){
+				return;
+			}
+		}
 		const newCounters = [...counters];
 		newCounters.push({name, value: 0});
-		this.setState({counters: newCounters});
+		this.setState({counters: newCounters, selectedCounter: newCounters.length - 1});
 	}
 
 	onRemoveCounter = (index) => {
@@ -87,7 +94,7 @@ function Sidebar({counters, selectedCounter, onHeaderClick, onAddCounter, onRemo
 		const selected = i === selectedCounter;
 		counterHeaders.push(
 			<CounterHeader
-				key={i}
+				key={name}
 				name={name} 
 				value={value} 
 				selected={selected} 
