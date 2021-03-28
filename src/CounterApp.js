@@ -65,7 +65,7 @@ function Sidebar({counters, selectedCounter, onHeaderClick}){
 		const selected = i === selectedCounter;
 		counterHeaders.push(
 			<CounterHeader
-				key={i}
+				key={name}
 				name={name} 
 				value={value} 
 				selected={selected} 
