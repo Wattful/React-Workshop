@@ -68,7 +68,6 @@ function Sidebar({counters, selectedCounter, onHeaderClick}){
 				value={value} 
 				selected={selected} 
 				onClick={() => onHeaderClick(i)} 
-				onRemoveCounter={() => onRemoveCounter(i)} 
 			/>
 		);
 	}
