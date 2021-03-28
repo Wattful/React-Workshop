@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.css";
 
-// TODO: fix key problem
 	
 export class CounterApp extends React.Component {
 	constructor(props){
