@@ -15,15 +15,15 @@ export class CounterApp extends React.Component {
 		this.setState({selectedCounter: index});
 	};
 
-	onPlusClick = (index) => {
-		this.changeCounterValue(index, value => value + 1);
+	onPlusClick = () => {
+		this.changeCounterValue(value => value + 1);
 	}
 
-	onMinusClick = (index) => {
-		this.changeCounterValue(index, value => value - 1);
+	onMinusClick = () => {
+		this.changeCounterValue(value => value - 1);
 	}
 
-	changeCounterValue = (index, operation) => {
+	changeCounterValue = (operation) => {
 		const {selectedCounter, counters} = this.state;
 		const {name, value} = counters[selectedCounter];
 		const newValue = operation(value);
