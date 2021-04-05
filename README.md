@@ -1,6 +1,6 @@
 # React-Workshop
 
-Code for React.js workshop given on April 3, 2021.
+Code for React.js workshop given on April 6, 2021.
 
 The [slides](https://docs.google.com/presentation/d/1BAdka8eR8wwrEUtqIFnyZD9TJV1SYghYHovDW9_zdbA/edit?usp=sharing) and video are available on demand.
 
